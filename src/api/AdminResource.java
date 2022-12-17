@@ -33,6 +33,6 @@ public class AdminResource {
     public Set<IRoom> getAllRooms(){return reservationService.getAllRooms();}
     public Set<Customer> getAllCustomers(){ return customerService.getAllCustomers(); }
     public void displayAllReservations(){
-
+        reservationService.printAllReservation();
     }
 }
