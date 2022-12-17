@@ -37,7 +37,7 @@ public class CustomerService {
 
     }
 
-    public Collection<Customer> getAllCustomers(){
+    public Set<Customer> getAllCustomers(){
     return customerSet;
 }
 }
