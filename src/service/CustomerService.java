@@ -8,7 +8,7 @@ public class CustomerService {
     private static CustomerService customerService = null;
 
     //Constructor
-    private static CustomerService getInstance(){
+    public static CustomerService getInstance(){
         if(customerService == null){
             CustomerService customerService = new CustomerService();
         }
