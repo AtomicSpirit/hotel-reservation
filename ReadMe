@@ -1,2 +1,27 @@
 Udacity x Cognizant: Full Stack Developer to Hire Nanodegree Program.
 Java Hotel Reservation Application
+
+
+References to:
+https://github.com/StephanieHallak/Hotel-Reservation-Collections
+https://www.youtube.com/watch?v=25kUc_ammbw
+
+12/19/22
+ /*  FIRST:  MainMenu3. Being able to create an Account.  Already Can do it with Regex email working.
+            Now I need to connect it to the UI.(frontend and backend ?See the Intro video for reference to the layout)
+            THEN:  AdminMenu1. See all Customers as Admin
+            THEN:  AdminMenu4. Being Able to Add a Room as Admin
+            THEN:  AdminMenu2. See all Rooms created.
+
+            THEN:  MainMenu1. Deciding whether to be a Guest or Customer.  Search feature for dates in finding a room?
+            Being able to reserve the room.  Single customer per a check-in and check-out date range.  Search for recommended rooms
+            if no available rooms for the customers date range.
+
+
+            THEN:  MainMenu2. displaying the reservation to the Customer.
+
+            AdminMenu3.See All Reservations
+
+
+12/22 definitely confused about how the functions should be through each part of the app.  Main menu and also customer service and customer classes.
+   */

@@ -5,7 +5,7 @@ import model.Customer; // alt + enter over Customer
 import java.util.*;
 public class CustomerService {
 
-    private static CustomerService customerService = null;
+    public static CustomerService customerService = null;
 
     //Constructor
     public static CustomerService getInstance(){
@@ -16,12 +16,12 @@ public class CustomerService {
     }
 
 
-    private  Set<Customer> customerSet = new HashSet<>();
+    public  Set<Customer> customerSet = new HashSet<>();
 
 
     public void addCustomer(String email, String firstName, String lastName){
-    Customer customer = new Customer(firstName, lastName, email);
-    customerSet.add(customer);
+    Customer customer = new Customer(email, firstName, lastName) ;
+    customer.createCustomer.add(customer);
     }
 
 

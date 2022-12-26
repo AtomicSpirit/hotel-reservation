@@ -7,26 +7,31 @@ public class Customer {
     String lastName;
     String email;
 
-/*The method that checks to make sure an email is valid.
+    public boolean createCustomer() {
+        if(validEmail(email)){
+
+                this.email = email;
+                customer.setEmail(email);
+                customer.setLastName(this.lastName);
+                customer.setFirstName(this.firstName);
+            }
+    }
+
+
+    /*The method that checks to make sure an email is valid.
 
 */
 
-private static boolean validEmail(String email){
+public static boolean validEmail(String email){
     String emailRegex = "^(.+)@(.+).com$";
     Pattern pattern = Pattern.compile(emailRegex);
     Matcher matcher = pattern.matcher(email);
     return pattern.matcher(email).matches();
 }
 
-    public Customer(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        if(validEmail(email)) {
-        this.email = email;
-        }else{
-            throw new IllegalArgumentException("Invalid Email Ssssssynnntttax");//I wrote this so it was easy to spot
-        }
-    }
+
+
+
 
     public String getFirstName() {
         return firstName;
@@ -56,6 +61,9 @@ private static boolean validEmail(String email){
         return "Name " + firstName  + " " + lastName + " email: " + email ;
     }
 }
+
+    public boolean validEmail(String email) {
+    }
 
 
 //RegEx info can be found in Lesson5: CommonTypes

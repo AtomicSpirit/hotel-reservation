@@ -27,8 +27,8 @@ public class ReservationService {
         return reservationService;
     }
 
-    private Set<IRoom> roomSet = new HashSet<>();
-    private Set<Reservation> reservationSet = new HashSet<Reservation>();
+    private static Set<IRoom> roomSet = new HashSet<>();
+    private static Set<Reservation> reservationSet = new HashSet<Reservation>();
 
 
     public void addRoom(IRoom room) {
@@ -44,7 +44,7 @@ public class ReservationService {
         return null;
     }
 
-    public Set<IRoom> getAllRooms() {
+    public static Set<IRoom> getAllRooms() {
         return roomSet;
     }
 
@@ -79,7 +79,7 @@ public class ReservationService {
         return availableRooms;
     }
 
-    public Set<Reservation> getCustomersReservation(Customer customer) {
+    public static Set<Reservation> getCustomersReservation(Customer customer) {
         Set<Reservation> set = new HashSet<Reservation>();
         for (Reservation reservation : reservationSet) {
             if (reservation.getCustomer().equals(customer)) {
