@@ -1,23 +1,22 @@
 package api;
 
 import model.Customer;
-import model.IRoom;
+import model.Room;
+import model.RoomType;
 import service.CustomerService;
 import service.ReservationService;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 public class AdminResource {
-    public static CustomerService customerService = CustomerService.getInstance();
-    public static AdminResource adminResource = null;
+    public  CustomerService customerService = new CustomerService();
+    public AdminResource adminResource = null;
 
 
-    public static ReservationService reservationService = ReservationService.getInstance();
+    public ReservationService reservationService = new ReservationService();
 
 
-    public static AdminResource getInstance () {
+    public AdminResource getInstance () {
         if (adminResource == null) {
             AdminResource adminResource = new AdminResource();
 
@@ -35,15 +34,16 @@ public class AdminResource {
         public Customer getCustomer (String email){
             return customerService.getCustomer(email);
         }
-        public void addRoom (List < IRoom > rooms) {
-            for (IRoom r : rooms) {
-                reservationService.addRoom(r);
-            }
+
+
+
+        public void addRoom (String roomNumber, double roomPrice, RoomType roomType, boolean isFree) {
+            reservationService.addRoom(roomNumber,roomPrice,roomType,isFree);
         }
-        public static Set<IRoom> getAllRooms () {
+        public Set<Room> getAllRooms () {
             return reservationService.getAllRooms();
         }
-        public static Set<Customer> getAllCustomers () {
+        public  Set<Customer> getAllCustomers () {
             return customerService.getAllCustomers();
         }
         public void displayAllReservations () {

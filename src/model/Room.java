@@ -1,14 +1,21 @@
 package model;
 
-public abstract class Room implements IRoom {
-    private String roomNumber;
-    protected Double price;
-    private RoomType roomType;
+public class Room implements IRoom {
+    public String roomNumber;
+    public Double price;
+    public RoomType roomType;
 
-    public Room(String roomNumber, Double price, RoomType roomType) {
+    public boolean isFree;
+
+    public Room(String roomNumber, Double price, RoomType roomType, boolean isFree) {
         this.roomNumber = roomNumber;
         this.price = price;
         this.roomType = roomType;
+        this.isFree = isFree;
+    }
+
+    public Room() {
+
     }
 
     @Override
@@ -27,8 +34,8 @@ public abstract class Room implements IRoom {
     }
 
     @Override
-    public boolean isFree() {
-        return false;
+    public boolean getIsFree() {
+        return isFree;
     }
 
 
@@ -44,9 +51,13 @@ public abstract class Room implements IRoom {
         this.roomType = roomType;
     }
 
+    public void setIsFree(Boolean isFree) {
+        this.isFree = isFree;
+    }
+
     @Override
     public String toString() {
-        return "Room Number:#" + roomNumber + " Price : $" + price
-                + " Room Type:" + roomType;
+        return "Room Number:# " + roomNumber + " Price : $" + price
+                + " Room Type:" + roomType + " Is the room free? " + isFree;
     }
 }

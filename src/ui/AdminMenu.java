@@ -7,15 +7,19 @@ package ui;
 5, Back to Main Menu (returns back to the MainMenu)
 */
 import api.AdminResource;
+import model.RoomType;
 import service.CustomerService;
 import service.ReservationService;
 
 import java.util.Scanner;
-public class AdminMenu {
-    static boolean exit;
-    static AdminResource admin = AdminResource.getInstance();
 
-    public static void runAdminMenu(){
+import static ui.MainMenu.runMenu;
+
+public class AdminMenu {
+     boolean exit;
+     AdminResource admin = new AdminResource();
+
+    public  void runAdminMenu(){
       while(!exit){
           printHeader();
           printMenu();
@@ -26,13 +30,13 @@ public class AdminMenu {
 
     }
 
-    public static void printHeader() {
+    public void printHeader() {
         System.out.println("Welcome to AdminMenu");
         System.out.println("++++++++++++++++++++");
 
     }
 
-    public static void printMenu() {
+    public  void printMenu() {
         System.out.println("1. See all Customers");
         System.out.println("2. See all Rooms");
         System.out.println("3. See all Reservations");
@@ -40,23 +44,48 @@ public class AdminMenu {
         System.out.println("5. Back to Main Menu (returns back to the MainMenu)");
 
     }
-    public static void getInput() {
+    public  void getInput() {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         //int intChoice = Integer.parseInt(choice);
         //System.out.println(choice);
         if (choice == 1) {
-          admin.getAllCustomers();
+          CustomerService customerService = new CustomerService();
+          customerService.getInstance();
+          System.out.println(customerService.getAllCustomers());
+          runAdminMenu();
 
         } else if (choice == 2) {
-
+            AdminResource adminResource = new AdminResource();
+            adminResource.getInstance();
+            System.out.println(adminResource.getAllRooms());
+            runAdminMenu();
         } else if (choice == 3) {
 
         } else if (choice == 4) {
+AdminResource adminResource = new AdminResource();
+adminResource.getInstance();
+
+
+//Room Number, Price, Type SINGLE or DOUBLE, vacancy isFree()
+            System.out.println("Room number?  Please enter:");
+            String roomNumber = scanner.next();
+            System.out.println("Room price?");
+            double roomPrice = scanner.nextDouble();
+            System.out.println("Room type?");
+            RoomType roomType = RoomType.valueOf(scanner.next().toUpperCase());
+            System.out.println("Keep the room free or no vacancy?  True or False:");
+            boolean isFree = scanner.nextBoolean();
+
+            adminResource.addRoom(roomNumber, roomPrice, roomType, isFree );
+            runAdminMenu();
+
+
+
 
 
         } else if (choice == 5) {
-            MainMenu.runMenu();
+            runMenu();
         } else {
 
 

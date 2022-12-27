@@ -7,9 +7,9 @@ https://github.com/StephanieHallak/Hotel-Reservation-Collections
 https://www.youtube.com/watch?v=25kUc_ammbw
 
 12/19/22
- /*  FIRST:  MainMenu3. Being able to create an Account.  Already Can do it with Regex email working.
+ /*  FIRST:  MainMenu3. Being able to create an Account.[X]  Already Can do it with Regex email working.
             Now I need to connect it to the UI.(frontend and backend ?See the Intro video for reference to the layout)
-            THEN:  AdminMenu1. See all Customers as Admin
+            THEN:  AdminMenu1. See all Customers as Admin[x]
             THEN:  AdminMenu4. Being Able to Add a Room as Admin
             THEN:  AdminMenu2. See all Rooms created.
 
@@ -24,4 +24,11 @@ https://www.youtube.com/watch?v=25kUc_ammbw
 
 
 12/22 definitely confused about how the functions should be through each part of the app.  Main menu and also customer service and customer classes.
+
+
+12/26  Layering so that components from one layer only interact with layer below
+To create a customer UI picks choice 3.  That calls to hotel resource which makes a call to customer service which makes a call to customer which
+goes back up to customer service and creates a
+
    */
+

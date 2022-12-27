@@ -1,21 +1,24 @@
 package model;
 
+//import jdk.internal.icu.text.UnicodeSet;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 public class Customer {
+    //public UnicodeSet createCustomer;
     String firstName;
     String lastName;
     String email;
 
-    public boolean createCustomer() {
-        if(validEmail(email)){
-
-                this.email = email;
-                customer.setEmail(email);
-                customer.setLastName(this.lastName);
-                customer.setFirstName(this.firstName);
-            }
-    }
+//    public boolean createCustomer() {
+//        if(validEmail(email)){
+//
+//                this.email = email;
+//                customer.setEmail(email);
+//                customer.setLastName(this.lastName);
+//                customer.setFirstName(this.firstName);
+//            }
+//    }
 
 
     /*The method that checks to make sure an email is valid.
@@ -58,12 +61,10 @@ public static boolean validEmail(String email){
     }
     @Override
     public String toString(){
-        return "Name " + firstName  + " " + lastName + " email: " + email ;
+        return "First Name " + firstName  + " Last Name " + lastName + " email: " + email ;
     }
 }
 
-    public boolean validEmail(String email) {
-    }
 
 
 //RegEx info can be found in Lesson5: CommonTypes

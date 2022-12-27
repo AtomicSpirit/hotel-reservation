@@ -1,16 +1,16 @@
 package model;
 
 public class FreeRoom extends Room {
-    public FreeRoom(String roomNumber, RoomType roomType) {
-        super(roomNumber, 0.0, roomType);
-    }
+    //public FreeRoom(String roomNumber, double roomPrice, RoomType roomType) {
+        //super(roomNumber, 0.0, roomType);
+    //}
 
 
-    @Override
-    public String toString() {
-        return "Room number" + getRoomNumber() + "is a " + getRoomType() + "costs " + getRoomPrice();
-    }
-
+//    @Override
+//    public String toString() {
+//        return "Room number" + getRoomNumber() + "is a " + getRoomType() + "costs " + getRoomPrice();
+//    }
+//
 //    @Override
 //    public String getRoomNumber() {
 //        return null;
@@ -28,6 +28,6 @@ public class FreeRoom extends Room {
 //
 //    @Override
 //    public boolean isFree() {
-//        return false;
+//        return true;
 //    }
 }

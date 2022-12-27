@@ -3,6 +3,7 @@ package api;
 import model.Customer;
 import model.Reservation;
 import model.IRoom;
+import model.Room;
 import service.CustomerService;
 import service.ReservationService;
 
@@ -11,16 +12,19 @@ import java.util.Date;
 import java.util.Set;
 
 public class HotelResource {
-    private static HotelResource hotelResource = null;
-    private static HotelResource getInstance() {
+    public  HotelResource hotelResource = null;
+    public  HotelResource getInstance() {
         if (hotelResource == null){
             HotelResource hotelResource = new HotelResource();
         }
         return hotelResource;
     }
 
-    private CustomerService customerService = CustomerService.getInstance();
-    private ReservationService reservationService = ReservationService.getInstance();
+   CustomerService customerService = new CustomerService();
+    ReservationService reservationService = new ReservationService();
+
+
+
     public Customer getCustomer(String email){
         return customerService.getCustomer(email);
     }
@@ -36,11 +40,11 @@ public class HotelResource {
         }
     }
 
-    public IRoom getRoom(String roomNumber){
-        return reservationService.getARoom(roomNumber);
-    }
+//    public IRoom getRoom(String roomNumber){
+//        return reservationService.getARoom(roomNumber);
+//    }
 
-    public Reservation bookARoom(String customerEmail, IRoom room, Date checkInDate, Date checkOutDate){
+    public Reservation bookARoom(String customerEmail, Room room, Date checkInDate, Date checkOutDate){
         Customer customer = customerService.getCustomer(customerEmail);
         if( customer == null){
             return null;
@@ -56,7 +60,7 @@ public class HotelResource {
         return reservationService.getCustomersReservation(customer);
     }
 
-    public Set<IRoom> findARoom(Date checkInDate, Date checkOutDate){
+    public Set<Room> findARoom(Date checkInDate, Date checkOutDate){
         return reservationService.findRooms(checkInDate, checkOutDate);
     }
 

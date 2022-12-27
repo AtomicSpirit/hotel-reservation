@@ -9,9 +9,12 @@ package ui;
 When should the customer enter data about themselves?
 */
 
+
+//The main menu should only be in communication with the api.
 import api.AdminResource;
-import model.Customer;
-import service.CustomerService;
+import api.HotelResource;
+//import model.Customer;
+//import service.CustomerService;
 
 import java.util.Scanner;
 
@@ -53,7 +56,7 @@ public class MainMenu {
         exit = true;
     }
 
-    public static  void getInput() {
+    public static void getInput() {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         //int intChoice = Integer.parseInt(choice);
@@ -66,24 +69,21 @@ public class MainMenu {
         } else if (choice == 3) {
 
 
-            try{  ;
-                AdminResource admin = new AdminResource();
-                CustomerService customerService = new CustomerService();
-                System.out.println("What is your email");
-                String email = scanner.next();
-                System.out.println("What is your firstname");
-                String firstName = scanner.next();
-                System.out.println("What is your lastname");
-                String lastName = scanner.next();
-                Customer customer = new Customer( firstName, lastName,email)
 
+                System.out.println("what is your email?");
+                String customerEmail = scanner.next();
+                System.out.println("what is your first name?");
+                String customerFirst = scanner.next();
+                System.out.println("what is your last name?");
+                String customerlast = scanner.next();
+
+                HotelResource hotelResource = new HotelResource();
+                hotelResource.getInstance();
+                hotelResource.createACustomer(customerEmail,customerFirst,customerlast);
+
+                runMenu();
             }
-            catch(IllegalArgumentException e){
 
-                    System.out.println("Invalid Email Ssssssynnntttax");
-
-                }
-            }
 
          else if (choice == 4) {
         AdminMenu adminMenu = new AdminMenu();

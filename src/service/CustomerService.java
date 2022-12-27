@@ -5,10 +5,10 @@ import model.Customer; // alt + enter over Customer
 import java.util.*;
 public class CustomerService {
 
-    public static CustomerService customerService = null;
+    public  CustomerService customerService = null;
 
     //Constructor
-    public static CustomerService getInstance(){
+    public CustomerService getInstance(){
         if(customerService == null){
             CustomerService customerService = new CustomerService();
         }
@@ -16,12 +16,19 @@ public class CustomerService {
     }
 
 
-    public  Set<Customer> customerSet = new HashSet<>();
+    public static Set<Customer> customerSet = new HashSet<>();
 
 
     public void addCustomer(String email, String firstName, String lastName){
-    Customer customer = new Customer(email, firstName, lastName) ;
-    customer.createCustomer.add(customer);
+    Customer customer = new Customer() ;
+    if(customer.validEmail(email)){customer.setEmail(email);}
+    else{System.out.println("Please use a valid Email.  Try Again");}
+    customer.setFirstName(firstName);
+    customer.setLastName(lastName);
+    customerSet.add(customer);
+    //System.out.println(this.getAllCustomers());
+
+
     }
 
 

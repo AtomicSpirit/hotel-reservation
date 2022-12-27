@@ -1,8 +1,9 @@
 package service;
 
 import model.Customer;
-import model.IRoom;
+import model.Room;
 import model.Reservation;
+import model.RoomType;
 
 //import java.util.*;  // Does this import everything?
 
@@ -13,9 +14,9 @@ import java.util.Set;
 
 public class ReservationService {
     //Static variable
-    private static ReservationService reservationService = null;
+    public static ReservationService reservationService = null;
 
-    private  ReservationService() {
+   public  ReservationService() {
 
     }
 
@@ -27,16 +28,21 @@ public class ReservationService {
         return reservationService;
     }
 
-    private static Set<IRoom> roomSet = new HashSet<>();
-    private static Set<Reservation> reservationSet = new HashSet<Reservation>();
+    public static Set<Room> roomSet = new HashSet<>();
+    public static Set<Reservation> reservationSet = new HashSet<Reservation>();
 
 
-    public void addRoom(IRoom room) {
+    public void addRoom(String roomNumber, Double roomPrice, RoomType roomType, Boolean isFree) {
+        Room room = new Room();
+        room.setRoomNumber(roomNumber);
+        room.setPrice(roomPrice);
+        room.setRoomType(roomType);
+        room.setIsFree(isFree);
         roomSet.add(room);
     }
 
-    public IRoom getARoom(String roomId) {
-        for (IRoom room : roomSet) {
+    public Room getARoom(String roomId) {
+        for (Room room : roomSet) {
             if (room.getRoomNumber().equals(roomId)) {
                 return room;
             }
@@ -44,11 +50,11 @@ public class ReservationService {
         return null;
     }
 
-    public static Set<IRoom> getAllRooms() {
+    public  Set<Room> getAllRooms() {
         return roomSet;
     }
 
-    public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate) {
+    public Reservation reserveARoom(Customer customer, Room room, Date checkInDate, Date checkOutDate) {
         Reservation reservation = new Reservation(customer, room, checkInDate, checkOutDate);
         reservationSet.add(reservation);
         return reservation;
@@ -62,10 +68,10 @@ public class ReservationService {
 
 
 
-    public Set<IRoom> findRooms(Date checkInDate, Date checkOutDate) {
-        Set<IRoom> availableRooms = new HashSet<>(roomSet);
+    public Set<Room> findRooms(Date checkInDate, Date checkOutDate) {
+        Set<Room> availableRooms = new HashSet<>(roomSet);
         if (reservationSet.size() != 0) {
-            for (IRoom room : roomSet) {
+            for (Room room : roomSet) {
                 for (Reservation reservation : reservationSet) {
                     if (room.getRoomNumber().equals(reservation.getRoom().getRoomNumber())) {
                         if ((reservation.getCheckInDate().before(checkOutDate) && reservation.getCheckOutDate().after(checkInDate))) {
