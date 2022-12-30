@@ -1,14 +1,14 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservation {
     Customer customer;
-    IRoom room;
-    Date checkInDate;
-    Date checkOutDate;
+    Room room;
+    LocalDate checkInDate;
+    LocalDate checkOutDate;
 
-    public Reservation(Customer customer, IRoom room, Date checkInDate, Date checkOutDate) {
+    public Reservation(Customer customer, Room room, LocalDate checkInDate, LocalDate checkOutDate) {
         this.customer = customer;
         this.room = room;
         this.checkInDate = checkInDate;
@@ -23,27 +23,27 @@ public class Reservation {
         this.customer = customer;
     }
 
-    public IRoom getRoom() {
+    public Room getRoom() {
         return room;
     }
 
-    public void setRoom(IRoom room) {
+    public void setRoom(Room room) {
         this.room = room;
     }
 
-    public Date getCheckInDate() {
-        return checkInDate;
+    public LocalDate getCheckInDate() {
+        return this.checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(LocalDate checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 
