@@ -5,6 +5,8 @@ Java Hotel Reservation Application
 References to:
 https://github.com/StephanieHallak/Hotel-Reservation-Collections
 https://www.youtube.com/watch?v=25kUc_ammbw
+https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html
+
 
 12/19/22
  /*  FIRST:  MainMenu3. Being able to create an Account.[X]  Already Can do it with Regex email working.
@@ -29,6 +31,35 @@ https://www.youtube.com/watch?v=25kUc_ammbw
 12/26  Layering so that components from one layer only interact with layer below
 To create a customer UI picks choice 3.  That calls to hotel resource which makes a call to customer service which makes a call to customer which
 goes back up to customer service and creates a
+
+
+
+
+
+
+
+
+12/27
+System.out.println("Enter CheckIn Date mm/dd/yyy example 03/14/2022");
+System.out.println("Enter CheckOut  Date mm/dd/yyy example 03/21/2022");
+
+getAllRooms   Only display the ones that are available
+System.out.println("Would you like to book a room? y/n");
+System.out.println("Do you have an account with us? y/n");
+
+//if client doesnt have an account with us it prompts to create one.
+//
+
+System.out.println("Which room number would you like to reserve?  :");
+reservation
+Jeff Phillips
+Room: 100 - Single bed
+Price: @120.00 price per night
+Checkin Date: Fri Jan 01 2021
+checkout Date: Fri Jan 15 2021
+
+
+
 
    */
 

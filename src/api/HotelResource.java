@@ -2,13 +2,11 @@ package api;
 
 import model.Customer;
 import model.Reservation;
-import model.IRoom;
 import model.Room;
 import service.CustomerService;
 import service.ReservationService;
 
-//import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 public class HotelResource {
@@ -44,7 +42,9 @@ public class HotelResource {
 //        return reservationService.getARoom(roomNumber);
 //    }
 
-    public Reservation bookARoom(String customerEmail, Room room, Date checkInDate, Date checkOutDate){
+    public Reservation bookARoom(String customerEmail, Room room, LocalDate checkInDate, LocalDate checkOutDate){
+        //DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
         Customer customer = customerService.getCustomer(customerEmail);
         if( customer == null){
             return null;
@@ -60,7 +60,7 @@ public class HotelResource {
         return reservationService.getCustomersReservation(customer);
     }
 
-    public Set<Room> findARoom(Date checkInDate, Date checkOutDate){
+    public Set<Room> findARoom(LocalDate checkInDate, LocalDate checkOutDate){
         return reservationService.findRooms(checkInDate, checkOutDate);
     }
 
