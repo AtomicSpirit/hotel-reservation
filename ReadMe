@@ -60,6 +60,12 @@ checkout Date: Fri Jan 15 2021
 
 
 
+12/31 Understanding the script/ process for the search and reserve a room option is long and complex.  I needs more time to build this one.
+I had too many functions inside one and realized I should move them out to the main class.
+
+
+Some of the logic definitely needs to be looked at more carefully.  For example do you have an account?  I typed YU and instead created the same
+john@gmail.com john and chung.  the YU should have not meant no.  and the same email and name should not be allowed either.  See my reservations still isnt functioning either.
 
    */
 

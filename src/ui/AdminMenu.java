@@ -61,7 +61,8 @@ public class AdminMenu {
             System.out.println(adminResource.getAllRooms());
             runAdminMenu();
         } else if (choice == 3) {
-
+    ReservationService reservationService = new ReservationService();
+    reservationService.printAllReservation();
         } else if (choice == 4) {
 AdminResource adminResource = new AdminResource();
 adminResource.getInstance();
