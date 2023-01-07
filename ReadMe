@@ -67,5 +67,11 @@ I had too many functions inside one and realized I should move them out to the m
 Some of the logic definitely needs to be looked at more carefully.  For example do you have an account?  I typed YU and instead created the same
 john@gmail.com john and chung.  the YU should have not meant no.  and the same email and name should not be allowed either.  See my reservations still isnt functioning either.
 
+
+
+1/03/2023  I know I have to put a few more trycatch blocks in there somewhere.  And when its illegal argument exceptions it shouldn't break
+
+1/06/2023 work on something else for 2 days and I think i have sore throat and flem so now im back to it/
+SLOWLY trying to get pieces connected but i need to strategize how to finish up.
    */
 

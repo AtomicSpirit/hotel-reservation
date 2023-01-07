@@ -11,11 +11,9 @@ When should the customer enter data about themselves?
 
 
 //The main menu should only be in communication with the api.
-import api.AdminResource;
 import api.HotelResource;
 import model.Customer;
 import model.Room;
-import service.CustomerService;
 import service.ReservationService;
 //import model.Customer;
 //import service.CustomerService;
@@ -23,9 +21,7 @@ import service.ReservationService;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Set;
 
 
 public class MainMenu {
@@ -97,11 +93,11 @@ public class MainMenu {
         if(bookYes.equals("y")){
 
             Customer customer = accountSituation();
-            Room requestedRoom = whichRoom();
+            Room roomNum = whichRoom();
             HotelResource hotelResource = new HotelResource();
-            hotelResource.bookARoom(customer.getEmail(), requestedRoom, inOut[0],inOut[1]);
+            hotelResource.bookARoom(customer.getEmail(), roomNum, inOut[0],inOut[1]);
             // THere needs to be a check to verify the reservations were legit.  refer to hotel resources
-            System.out.println("reservation for " + customer + " has booked room number : " + requestedRoom );
+            System.out.println("reservation for " + customer + " has booked room number : " + roomNum);
             runMenu();
         }
 
@@ -144,12 +140,15 @@ return signUp();
     //Asks which Room the customer would like to reserve and returns the confirmation information
 
     public static Room whichRoom(){
+
         Scanner scanner = new Scanner(System.in);
         ReservationService reservationService = new ReservationService();
         System.out.println("Which room number would you like to reserve?  :");
         String requestedRoomNumber = scanner.next();
-        Room requestedRoom = reservationService.getARoom(requestedRoomNumber);
-        return requestedRoom;
+
+
+        return reservationService.getARoom(requestedRoomNumber);
+
 
     }
     
@@ -191,8 +190,13 @@ return signUp();
 
 
 
-        } else if (choice == 2) {
-
+        } else if (choice == 2) {//mainmenu see my reservations
+            System.out.println("what is your email?");
+            String customerEmail = scanner.next();
+            ReservationService reservationService = new ReservationService();
+            HotelResource hotelResource = new HotelResource();
+            System.out.println(reservationService.getCustomersReservation(hotelResource.getCustomer(customerEmail)));
+            runMenu();
         } else if (choice == 3) {
 
             signUp();

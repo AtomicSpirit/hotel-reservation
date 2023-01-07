@@ -1,14 +1,12 @@
 package service;
 
-import model.Customer;
-import model.Room;
-import model.Reservation;
-import model.RoomType;
+import model.*;
 
 //import java.util.*;  // Does this import everything?
 
 //import java.util.Collection;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -80,8 +78,8 @@ public class ReservationService {
 
 
 
-    public Set<Room> findRooms(LocalDate checkInDate, LocalDate checkOutDate) {
-        Set<Room> availableRooms = new HashSet<>(roomSet);
+    public Set<IRoom> findRooms(LocalDate checkInDate, LocalDate checkOutDate) {
+        Set<IRoom> availableRooms = new HashSet<>(roomSet);
         if (reservationSet.size() != 0) {
             for (Room room : roomSet) {
                 for (Reservation reservation : reservationSet) {
@@ -97,15 +95,19 @@ public class ReservationService {
         return availableRooms;
     }
 
-    public static Set<Reservation> getCustomersReservation(Customer customer) {
-        Set<Reservation> set = new HashSet<Reservation>();
-        for (Reservation reservation : reservationSet) {
-            if (reservation.getCustomer().equals(customer)) {
-                set.add(reservation);
-            }
+    public Set<Reservation> getCustomersReservation(Customer customer) {
+        Set<Reservation> customersRez = new HashSet<>();
+
+        for(Reservation rez : reservationSet) {
+            if(rez.getCustomer().getEmail().equals(customer.getEmail())) {
+               customersRez.add(rez);
         }
-        return set;
+
     }
+        return customersRez;
+    }
+
+
 
     public void printAllReservation() {
         for (Reservation reservation : reservationSet) {
@@ -113,5 +115,11 @@ public class ReservationService {
         }
     }
 
-}
+//   public ArrayList getCustomersReservation(){
+//        return (ArrayList) reservationSet;}
+   }
+
+
+
+
 

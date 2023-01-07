@@ -63,22 +63,30 @@ public class AdminMenu {
         } else if (choice == 3) {
     ReservationService reservationService = new ReservationService();
     reservationService.printAllReservation();
+            runAdminMenu();
         } else if (choice == 4) {
 AdminResource adminResource = new AdminResource();
 adminResource.getInstance();
 
 
 //Room Number, Price, Type SINGLE or DOUBLE, vacancy isFree()
-            System.out.println("Room number?  Please enter:");
-            String roomNumber = scanner.next();
-            System.out.println("Room price?");
-            double roomPrice = scanner.nextDouble();
-            System.out.println("Room type?");
-            RoomType roomType = RoomType.valueOf(scanner.next().toUpperCase());
+
+            try{System.out.println("Room number?  Please enter:");
+                String roomNumber = scanner.next();
+                System.out.println("Room price?");
+                double roomPrice = scanner.nextDouble();
+                System.out.println("Room type?");
+                RoomType roomType = RoomType.valueOf(scanner.next().toUpperCase());
+
+
             System.out.println("Keep the room free or no vacancy?  True or False:");
             boolean isFree = scanner.nextBoolean();
-
             adminResource.addRoom(roomNumber, roomPrice, roomType, isFree );
+            System.out.println("Room was successfully added");
+        }
+            catch(Exception e){
+                System.out.println("There was an error in your input please try again.");
+                runAdminMenu();}
             runAdminMenu();
 
 

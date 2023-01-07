@@ -38,7 +38,8 @@ public class AdminResource {
 
 
         public void addRoom (String roomNumber, double roomPrice, RoomType roomType, boolean isFree) {
-            reservationService.addRoom(roomNumber,roomPrice,roomType,isFree);
+            try{reservationService.addRoom(roomNumber,roomPrice,roomType,isFree);}
+            catch(Exception e){System.out.println(e);}
         }
         public Set<Room> getAllRooms () {
             return reservationService.getAllRooms();
